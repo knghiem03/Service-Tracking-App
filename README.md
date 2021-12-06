@@ -7,7 +7,7 @@
 
 ## About the Developer
 
-Service Tracking App was created by Kim Nghiem. Learn more about the developer on [LinkedIn](www.linkedin.com/in/kimnghiem).
+Service Tracking App was created by Kim Nghiem. 
 
 
 ## Technologies
