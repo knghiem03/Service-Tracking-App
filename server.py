@@ -11,6 +11,7 @@ from authlib.integrations.flask_client import OAuth
 # decorator for routes that should be accessible only by logged in users
 # from auth_decorator import login_required
 from functools import wraps
+import os
 
 app = Flask(__name__)
 app.secret_key = "dev"
@@ -20,10 +21,8 @@ app.jinja_env.undefined = StrictUndefined
 oauth = OAuth(app)
 google = oauth.register(
     name='google',
-    # client_id=os.getenv("GOOGLE_CLIENT_ID"),
-    # client_secret=os.getenv("GOOGLE_CLIENT_SECRET"),
-    client_id="890810225263-2mtjevuvqin66go9mg5lk6rcm6c6ioug.apps.googleusercontent.com",
-    client_secret="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",
+    client_id=os.getenv("GOOGLE_CLIENT_ID"),
+    client_secret=os.getenv("GOOGLE_CLIENT_SECRET"),
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
