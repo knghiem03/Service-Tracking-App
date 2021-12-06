@@ -49,8 +49,10 @@ $ pip3 install -r requirements.txt
 Get your own secret keys🔑 for [Twilio](https://www.twilio.com/doers). Save them to a file `secrets.py`. Your file should look something like this:
 ```
 APP_KEY = 'xyz'
-TWILIO_SID = 'abc'
-TWILIO_AUTH = 'abc'
+TWILIO_ACCOUNT_SID = 'abc'
+TWILIO_AUTH_TOKEN = 'abc'
+GOOGLE_CLIENT_ID = 'xyz'
+GOOGLE_CLIENT_SECRET = 'xyz'
 ```
 Create database 'clients_app'.
 ```
