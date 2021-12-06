@@ -1,4 +1,4 @@
-# Spent
+# Service Tracking App
 
 ## Summary
 
@@ -11,22 +11,6 @@ Service Tracking App was created by Kim Nghiem. Learn more about the developer o
 
 
 ## Technologies
-
-**Tech Stack:**
-
-- Python
-- Flask
-- SQLAlchemy
-- Jinja2
-- HTML
-- CSS
-- Javascript
-- JQuery
-- AJAX
-- JSON
-- Bootstrap
-- Python datetime, csv, Faker, Google OAuth 
-- Twilio API
 
 Service Tracking App is an app built on a Flask server with a PostgreSQL database, with SQLAlchemy as the ORM. The front end templating uses Jinja2, the HTML was built using Bootstrap, and the Javascript uses JQuery and AJAX to interact with the backend. Server routes are tested using the Python unittest module.
 
