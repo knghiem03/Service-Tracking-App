@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Database Query{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    
+    {% if response %}
+    <h2>{{title}}</h2>
+        <table class="table table-success table-bordered table-striped">
+        <thead>
+        <tr>
+        <th scope="col">Num</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Phone</th>
+        <th scope="col">DOB</th>
+        </tr>   
+        </thead>
+        <tbody>
+        {% for client in response %}
+       
+        <tr class="table-success">
+            <th scope="row">{{loop.index}}</th>
+            <td>{{client.fname}}</td>
+            <td>{{client.lname}} </td>
+            <td>{{client.phone}}</td>
+            <td>{{client.dob}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}     
+</div>
+
+{% endblock %}

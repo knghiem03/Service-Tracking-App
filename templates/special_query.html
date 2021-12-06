@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Special queries{% endblock %}
+
+{% block body %}
+<div class="container mx-auto mt-4">
+<form action="/run_spl_query_1" id="spl_query_1_form">
+    <div class="row align-items-center g-5" style="vertical-align: baseline;">
+      <div class="col-auto">
+      <label style="font-size:x-large">List all clients by:</label>
+      </div>
+      <div class="col-2">
+        <select name ="query_option" id="query_opt" class="form-select form-select-md " 
+                aria-label=".form-select-sm example">
+        <option value="age" selected>Age over</option>
+        <option value="city">        City</option>
+        <option value="zip">         Zipcode</option>
+        <option value="county">      County</option>
+        <option value="lang">        Language</option>
+      </select>
+      </div>
+      <div class="col-2">
+        <input type="text" name="user_input" class="form-control" id="input-user">
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary">Submit Query</button>
+      </div>
+    </div>
+</form>
+</div>
+
+<div id="showClient-form">
+</div> 
+
+<div id="showService-form">
+</div> 
+<div class="container">
+    
+  {% if response %}
+  <h3>{{title}}</h3>
+      <table class="table table-success table-bordered table-striped">
+      <thead>
+      <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Phone</th>
+      <th scope="col">DOB</th>
+      </tr>   
+      </thead>
+      <tbody>
+      {% for client in response %}
+      <tr class="table-success">
+          <th scope="row">{{loop.index}}</th>
+          <td>{{client.fname}}</td>
+          <td>{{client.lname}} </td>
+          <td>{{client.phone}}</td>
+          <td>{{client.dob}}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+  {% endif %}     
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Service Hours{% endblock %}
+
+{% block body %}
+    
+<div class="container mt-5">
+    
+    <h2>{{response[0]}}</h2>
+        <table class="table table-success table-bordered table-striped">
+        <thead>
+        <tr>
+        <th scope="col">Num</th>
+        <th scope="col">Program</th>
+        <th scope="col">Minutes</th>
+        <th scope="col">Units</th>
+        </tr>   
+        </thead>
+        <tbody>
+        {% for program in response[1] %}
+       
+        <tr class="table-success">
+            <th scope="row">{{loop.index}}</th>
+            <td>{{program[0]}}</td>
+            <td>{{program[1]}} </td>
+            <td>{{program[2]}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    
+</div>
+{% endblock %}

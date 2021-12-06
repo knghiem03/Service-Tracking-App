@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Database Query{% endblock %}
+
+{% block body %}
+    
+<h2 style='text-align: center;'>Sending text message to a single client</h2>
+<form class="row justify-content-center align-items-center" action="/one_sms" id="sms_form_1">
+    <div class="col-auto">
+        <label style="font-size: x-large" id="input-phone">Phone number</label>
+        <input type="tel" name="phone" id="input-phone" maxlength="12", value="+1">
+    </div>
+    <div class="col-auto">
+        <label style="font-size: x-large" for="input-message">Message to send:</label>
+        <textarea name="message" id="input-message"></textarea>
+    </div>
+    <div class="col-auto">
+    <input type="submit" class="btn btn-primary btn-lg" value="Send SMS">
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Service Tracking App Login{% endblock %}
+
+{% block body %}
+<div class="container col-4 mx-auto mt-5 text-center">
+<h3>Client Service Tracking App Login</h1>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Sign Up</button>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Sign In</button>
+  </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <form style="max-width:400px; margin:auto" action ="/users" method="POST" id="create_form">
+      <input class="form-control" type="email" name="email" id="emailAddress"
+             placeholder="Email Address" required autofocus>
+      <input class="form-control" type="password" name="password" id="password"
+             placeholder="Password" required autofocus>
+      <div class="d-grid mt-3">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
+      </div>
+      </form>
+  </div>
+
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <form style="max-width:400px; margin:auto" 
+            action ="/login" method="POST" id="login_form">
+      <input class="form-control" type="email" name="email" id="emailAddress"
+             placeholder="Email Address" required autofocus>
+  
+      <input class="form-control" type="password" name="password" id="password"
+             placeholder="Password" required autofocus>
+      <div class="d-grid mt-3">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      </div>
+      </form>
+
+      <div class="text-center">
+      <form style="max-width:400px; margin:auto" 
+            action ="/login_gg" id="login_form_gg">
+      <div class="d-grid mt-3">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Login with Google Email</button>
+      </div>
+      </form>
+      </div>
+  </div>
+</div>
+</div>
+{% endblock %}

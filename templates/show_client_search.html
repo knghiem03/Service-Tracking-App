@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Client search{% endblock %}
+
+{% block body %}
+<!-- To keep the whole thing center on the page -->
+<div class ="w-75 mx-auto mt-5" id = "searchClient">
+    <div class="col-auto">
+        <h4>Client Search:</h4>
+    </div>
+    <form action="/searchDb" id="searchClient-form">
+        <div class = "row">
+            
+            <div class="col-auto">
+                <label for="floatingInput">First name</label>
+            </div>
+            <div class="col-sm-3">  
+                <input type="text" name="fname" class="form-control" id="floatingFname">
+            </div>
+
+            <div class="col-auto">
+                <label for="floatingPassword">Last name</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" name="lname" class="form-control" id="floatingLname">
+            </div>  
+
+            <div class="col-sm-2">
+            <input type="submit" class="btn btn-primary btn-sg" value="Search">
+            </div>
+        </div>
+    </form>
+
+    <div id="sch-result"></div>
+    </div>
+</div>
+
+
+{% endblock %}

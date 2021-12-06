@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: #84cf85 ;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Service Tracking App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/show_search_box">Search</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+             data-bs-toggle="dropdown" aria-expanded="true">
+            List Clients
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/run_query/1">Second Harvest</a></li>
+            <li><a class="dropdown-item" href="/run_query/2">Elders Program</a></li>
+            <li><a class="dropdown-item" href="/run_query/3">MNSure Program</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/other_options">Other Options</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+             data-bs-toggle="dropdown" aria-expanded="true">
+            Send SMS
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/one_sms_page">To a numnber</a></li>
+            <li><a class="dropdown-item" href="/many_sms_page">To a list</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+             data-bs-toggle="dropdown" aria-expanded="true">
+            Service Hours
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/last_month_hours">Last month hours</a></li>
+            <li><a class="dropdown-item" href="/last_quarter_hours">Last quarter hours</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <a class="nav-link active" aria-current="page" href="/showLogin">Login</a>
+        <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+      </form>
+    </div>
+  </div>
+</nav>
+<h1>Welcome to Client Service Tracking App !</h1>

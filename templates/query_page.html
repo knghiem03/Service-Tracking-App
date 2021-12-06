@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Database Query{% endblock %}
+
+{% block body %}
+
+<h2>Frequently Used Database Queries</h2>
+<form action="/run_query" id="query_form">
+    <div class="row col-md">
+        <div class="col-auto">
+            <label for="input-program">Choose the query:</label>
+            <select name="query_option" id="query_type">
+                <option value="1">Second Harvest Client list</option>
+                <option value="2">Elders Program Client list</option>
+                <option value="3">MNSure Health Insurance Inquiries last month</option>
+                <option value="4">All Client over 60</option>
+            </select>
+        </div>
+        <div class="col-md">
+            <input type="submit" class="btn btn-primary btn-lg" value="Submit Query">
+        </div>
+    </div>
+</form>
+
+<div class="container">
+    
+    {% if response %}
+    <h2>{{title}}</h2>
+        <table class="table table-success table-bordered table-striped">
+        <thead>
+        <tr>
+        <th scope="col">Num</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Phone</th>
+        <th scope="col">DOB</th>
+        </tr>   
+        </thead>
+        <tbody>
+        {% for client in response %}
+       
+        <tr class="table-success">
+            <th scope="row">{{loop.index}}</th>
+            <td>{{client.fname}}</td>
+            <td>{{client.lname}} </td>
+            <td>{{client.phone}}</td>
+            <td>{{client.dob}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}     
+</div>
+
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Service Tracking App{% endblock %}
+
+{% block body %}
+<div class="row mt-5 mb-5"></div>
+<div class="row p-3">
+<div class="col-1"></div>
+<div class="col-5">
+  <form action="/addClientToDb" class="mx-auto p-3 border border-Primary border-5" id="addClient-form">
+  <h2>Client Demographic</h2>
+    <div class="row mb-1">
+      <div class="col-sm-4">
+        <label for="input-fname" class="form-label">First name</label>
+        <input type="text" name="fname" class="form-control" id="input-fname">
+      </div>
+      <div class="col-sm-4">
+        <label for="input-lname" class="form-label">Last name</label>
+        <input type="text" name="lname" class="form-control" id="input-lname">
+      </div>
+      <div class="col-sm-4">
+        <label for="input-mname" class="form-label">Middle name</label>
+        <input type="text" name="mname" class="form-control" id="input-mname">
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-auto">
+        <label for="input-dob" class="form-label">Date of birth</label>
+        <input type="date" name="dob" class="form-control" id="input-dob">
+      </div>
+      <div class="col-auto">
+        <label for="input-phone" class="form-label">Phone number</label>
+        <input type="tel" name="phone" class="form-control" id="input-phone" maxlength="10" placeholder="000-000-0000">
+      </div>
+      <div class="col-sm-3">
+        <label for="input-lang" class="form-label">Language</label>
+        <select name ="lang" id="input-lang" class="form-select form-select-md mb-3" aria-label=".form-select-sm example">
+          <option value="Karen" selected>Karen</option>
+          <option value="Karenni">Karenni</option>
+          <option value="Somali">Somali</option>
+          <option value="Vietnamese">Vietnamese</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-sm-4">
+        <label for="input-address" class="form-label">Address</label>
+        <input type="text" name="address" class="form-control" id="input-address" placeholder="123 Main St">
+      </div>
+      <div class="col-auto">
+        <label for="input-intake" class="form-label">Intake date</label>
+        <input type="date" name="in_date" class="form-control" id="input-intake">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <label for="input-city" class="form-label">City</label>
+        <input type="text" name="city" class="form-control" id="input-city">
+      </div>
+      <div class="col-sm-2">
+        <label for="input-state" class="form-label">State(MN)</label>
+        <input type="text" name="state" class="form-control" id="input-state", maxlength="2", value="MN">
+      </div>  
+      <div class="col-sm-2">
+        <label for="input-zip" class="form-label">Zip Code</label>
+        <input type="text" name="zip" class="form-control" id="input-zip" pattern='[0-9]{5}' maxlength="5", value="55000">
+      </div>
+      <div class="col-sm-3">
+        <label for="input-county" class="form-label">County</label>
+        <select name ="county" id="input-county" class="form-select" aria-label=".form-select-sm example">
+          <option value="Ramsey" selected>Ramsey</option>
+          <option value="Hennepin">Hennepin</option>
+          <option value="Dakota">Dakota</option>
+          <option value="Washington">Washington</option>
+          <option value="Anoka">Anoka</option>
+          <option value="Olmsted">Olmsted</option>
+          <option value="Scott">Scott</option>
+        </select>
+      </div>
+    </div>
+    <div class="row"> 
+      <div class="col-auto">
+        <input type="submit" class="mt-2 btn btn-primary btn-lg" id="addToDB" value="Add to database">
+      </div>
+    </div>
+</form></div>
+<div class="col-1"></div>
+<div class="col-4">  
+  <form action="/recordService" class="mx-auto p-3 border border-Primary border-5" 
+        id="recordService-form">
+  <h2>Service notes</h2>
+      <div class="mb-3">
+          <label for="input-program">Service Provided</label>
+          <select name="service_radio" id="input-program">
+              <option value="1">Second Harvest</option>
+              <option value="2">Elders Program</option>
+              <option value="3">MNSure Health Insurance Application</option>
+              <option value="3">GOTV</option>
+              <option value="5">Other</option>
+          </select>
+      </div>
+      <div class="col-auto mb-2">
+          <label for="Textarea1" class="form-label">Description of service provided</label>
+          <textarea name="message" class="form-control" id="Textarea1" rows=4></textarea>
+      </div>
+      <div class="col-auto">
+          <input type="submit" class="btn btn-primary btn-lg" id="record" value="Record Provided Service">
+      </div>
+  </form>
+</div>
+</div>
+
+<div id="showClient-form">
+</div> 
+
+<div id="showService-form">
+</div> 
+{% if client %}
+<script>const fname  = '{{client.fname}}'
+        const lname  = '{{client.lname}}'
+        const dob    = '{{client.dob}}' 
+        const phone  = '{{client.phone}}'
+        const address = '{{client.address}}'
+        const city    = '{{client.city}}'
+        const state   = '{{client.state}}'
+        const zip     = '{{client.zip}}'
+        const county  = '{{client.county}}'
+        const lang    = '{{client.lang}}'  </script>
+<script src="/static/js/loadClientForm.js"></script>
+{% else %}
+<script>$('#record').addClass("disabled")</script>
+{% endif %} 
+{% endblock %}

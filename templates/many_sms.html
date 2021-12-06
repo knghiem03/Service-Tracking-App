@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}Send via SMS{% endblock %}
+
+{% block body %}
+
+<h2 style="text-align: center;">Standard Database Query</h2>
+    <form class="row  justify-content-center" action="/run_sms_query" id="query_form" >
+        <div class="col-auto">
+        <label style="font-size:x-large;" for="query_type">Query to submit</label>
+        </div>
+        <div class="col-auto align-self-center">
+        <select style="font-size:x-large;" name="query_option" id="query_type">
+            <option value="1">Second Harvest Client list</option>
+            <option value="2">Elders Program Client list</option>
+            <option value="3">MNSure Health Insurance Inquiries last month</option>
+            <option value="4">All Client over 60</option>
+        </select>
+        </div>
+        <div class="col-auto align-self-center">
+        <input type="submit" class="btn btn-primary btn-sg" value="Submit Query">
+        </div>
+    </form>
+    
+    <form class="row justify-content-center" action="/send_sms" id="sms_form_2">
+        <div class="col-auto align-self-center">
+        <label style="font-size:x-large;" for="input-message">Message:</label></div>
+        <div class="col-auto align-self-center">
+        <textarea name="message" id="input-message"></textarea></div>
+        <div class="col-auto align-self-center">
+        <input type="submit" class="btn btn-primary btn-sg" value="Send SMS"></div>
+    </form>
+
+<div class="container"> 
+    {% if response %}
+    <h2>{{title}}</h2>
+        <table class="table table-success table-bordered table-striped">
+        <thead>
+        <tr>
+        <th scope="col">Num</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Phone</th>
+        <th scope="col">DOB</th>
+        </tr>   
+        </thead>
+        <tbody>
+        {% for client in response %}
+        <tr class="table-success">
+            <th scope="row">{{loop.index}}</th>
+            <td>{{client.fname}}</td>
+            <td>{{client.lname}} </td>
+            <td>{{client.phone}}</td>
+            <td>{{client.dob}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}     
+</div>
+{% endblock %}
